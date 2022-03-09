@@ -14,7 +14,11 @@
     {% endblock %}
 
     {% block corecss %}
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
 
     {% block extra_css %}
@@ -27,6 +31,10 @@
     {% endblock %}
 
     {% block extra_js %}
+        <script src="https://kit.fontawesome.com/e9c73d7092.js" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     {% endblock %}
 
     <title>MovieBox {% block extra_title %}{% endblock %}</title>
@@ -36,7 +44,7 @@
       <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
           <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
               <a href="{% url 'home' %}" class="nav-link logo-main">
-                  <h2 class="navbar-text my-0 logo-main-text">MovieBox</h2>
+                  <h2 class="navbar-text my-0 text-danger logo-main-text">MovieBox</h2>
               </a>
           </div>
           <!-- Form taken from Boutique Ado Mini Project -->
@@ -60,8 +68,8 @@
                   <li class="list-inline-item dropdown">
                       <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           <div class="text-center">
-                              <div><i class="fas fa-user fa-lg navbar-text"></i></div>
-                              <p class="my-0 navbar-text">My MovieBox Account</p>
+                              <div><i class="fas fa-user fa-lg text-danger navbar-text"></i></div>
+                              <p class="my-0 text-danger navbar-text">My MovieBox Account</p>
                           </div>
                       </a>
                       <div class="dropdown-menu border-0" aria-labelledby="user-options">
@@ -80,8 +88,8 @@
                   <li class="list-inline-item">
                       <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="">
                           <div class="text-center">
-                              <div><i class=" navbar-text fas fa-shopping-bag fa-lg"></i></div>
-                              <p class="my-0 navbar-text">
+                              <div><i class=" navbar-text text-danger fas fa-shopping-bag fa-lg"></i></div>
+                              <p class="my-0 text-danger navbar-text">
                                   {% if grand_total %}
                                       €{{ grand_total|floatformat:2 }}
                                   {% else %}
